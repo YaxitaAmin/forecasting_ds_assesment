@@ -1,31 +1,42 @@
-# 🌍 Global Weather Repository — Trend Forecasting & Advanced Analysis
+# Global Weather Repository — Trend Forecasting & Advanced Analysis
 
-> **PM Accelerator Tech Assessment** | Weather Trend Forecasting
+> PM Accelerator Tech Assessment | Weather Trend Forecasting
 
+---
 
-## 📋 Project Overview
+## PM Accelerator Mission
+
+PM Accelerator is the world's leading Product Manager training program.
+Our mission is to accelerate the careers of aspiring and experienced Product Managers
+through real-world projects, mentorship, and a global community.
+We believe everyone deserves access to world-class PM education, regardless of background.
+Visit us at [pmaccelerator.io](https://www.pmaccelerator.io)
+
+---
+
+## Project Overview
 
 This project performs a comprehensive analysis of the **Global Weather Repository** dataset —
 daily weather observations for capital cities worldwide, starting May 2024.
 
-It covers both the **Basic** and **Advanced** assessment requirements:
+It covers both the Basic and Advanced assessment requirements:
 
 | Requirement | Status |
 |---|---|
-| Data cleaning & preprocessing | ✅ |
-| Exploratory Data Analysis (EDA) | ✅ |
-| Temperature & precipitation visualizations | ✅ |
-| Anomaly detection | ✅ |
-| Multiple forecasting models | ✅ |
-| Ensemble model | ✅ |
-| Climate pattern analysis | ✅ |
-| Air quality & environmental impact | ✅ |
-| Feature importance (SHAP) | ✅ |
-| Spatial / geographical analysis | ✅ |
+| Data cleaning & preprocessing | Done |
+| Exploratory Data Analysis (EDA) | Done |
+| Temperature & precipitation visualizations | Done |
+| Anomaly detection | Done |
+| Multiple forecasting models | Done |
+| Ensemble model | Done |
+| Climate pattern analysis | Done |
+| Air quality & environmental impact | Done |
+| Feature importance (SHAP) | Done |
+| Spatial / geographical analysis | Done |
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 
 ```
 ├── Global_Weather_Forecasting.ipynb   # Main analysis notebook
@@ -36,48 +47,54 @@ It covers both the **Basic** and **Advanced** assessment requirements:
 
 ---
 
-## 📊 Dataset
+## Dataset
 
 **Source:** [Kaggle — Global Weather Repository](https://www.kaggle.com/datasets/nelgiriyewithana/global-weather-repository/code)
 
 - ~143,000+ daily records
 - 41 features: temperature, wind, pressure, precipitation, humidity, visibility, air quality, moon phase, and more
-- Coverage: May 2024 – present (daily updates)
+- Coverage: May 2024 to present (daily updates)
 - Scope: Capital cities across ~195 countries
 
-**Download the dataset from Kaggle and place it in the project root as:**
+Download the dataset from Kaggle and place it in the project root as:
+
 ```
 GlobalWeatherRepository.csv
 ```
 
 ---
 
-## ⚙️ Setup & Installation
+## Setup & Installation
 
 ### 1. Clone the repository
+
 ```bash
-git clone https://github.com/YOUR_USERNAME/global-weather-forecasting.git
-cd global-weather-forecasting
+git clone https://github.com/YaxitaAmin/forecasting_ds_assesment.git
+cd forecasting_ds_assesment
 ```
 
 ### 2. Install dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
 ### 3. Download the dataset
+
 Download `GlobalWeatherRepository.csv` from [Kaggle](https://www.kaggle.com/datasets/nelgiriyewithana/global-weather-repository) and place it in the project root.
 
 ### 4. Launch the notebook
+
 ```bash
 jupyter notebook Global_Weather_Forecasting.ipynb
 ```
 
 ---
 
-## 🔬 Methodology
+## Methodology
 
 ### Data Cleaning
+
 - Parsed `last_updated` as datetime for time series indexing
 - Dropped redundant unit columns (Fahrenheit, mph, inches, epoch timestamp)
 - Imputed missing air quality values with column medians
@@ -85,6 +102,7 @@ jupyter notebook Global_Weather_Forecasting.ipynb
 - Capped outliers at 1st/99th percentile using IQR method
 
 ### Exploratory Data Analysis
+
 - Global temperature trend with 30-day rolling average
 - Monthly seasonality for temperature, precipitation, and humidity
 - Temperature distribution by continent (boxplots)
@@ -92,12 +110,14 @@ jupyter notebook Global_Weather_Forecasting.ipynb
 - Top wettest capitals, weather condition distribution, wind violinplots
 
 ### Anomaly Detection
-- **Isolation Forest** (contamination=2%) on 6 core weather features
+
+- Isolation Forest (contamination=2%) on 6 core weather features
 - Z-score analysis to identify extreme temperature events
 - Country-level anomaly frequency ranking
 
 ### Forecasting Models
-All models forecast **global average daily temperature** (train/test split: last 60 days as test).
+
+All models forecast global average daily temperature (train/test split: last 60 days as test).
 
 | Model | Notes |
 |---|---|
@@ -108,9 +128,10 @@ All models forecast **global average daily temperature** (train/test split: last
 | Prophet | Trend + seasonality decomposition (optional) |
 | Ensemble | Weighted average by inverse MAE |
 
-**Evaluation metrics:** MAE, RMSE, R²
+Evaluation metrics: MAE, RMSE, R²
 
 ### Advanced Analyses
+
 - **Climate patterns:** Seasonal decomposition, continent-level monthly trends, temperature variability by country, hottest/coldest months
 - **Air quality:** PM2.5 by continent vs WHO guidelines, PM2.5 over time, AQ–weather correlation heatmap, most polluted capitals
 - **Feature importance:** Random Forest MDI, XGBoost gain, SHAP summary and bar plots
@@ -118,7 +139,7 @@ All models forecast **global average daily temperature** (train/test split: last
 
 ---
 
-## 📦 Requirements
+## Requirements
 
 See `requirements.txt`. Core dependencies:
 
@@ -132,25 +153,25 @@ scikit-learn
 xgboost
 lightgbm
 statsmodels
-prophet        # optional but recommended
-shap           # optional but recommended
-folium         # optional for interactive map
+prophet
+shap
+folium
 notebook
 ```
 
 ---
 
-## 📈 Key Findings
+## Key Findings
 
-- Global average temperature follows a clear **annual seasonal cycle**, peaking July–August.
-- **XGBoost and LightGBM** with lag/rolling features outperform SARIMA; the ensemble achieves best metrics.
-- **Asian capitals** record the highest PM2.5, frequently exceeding WHO guidelines; wind speed is the strongest dispersal factor.
-- **Humidity, seasonality (month/day-of-year), and pressure** are the top predictors of temperature per SHAP analysis.
-- Clear **latitude-temperature gradient** confirmed: tropical bands are hottest, arctic bands coldest.
+- Global average temperature follows a clear annual seasonal cycle, peaking July–August.
+- XGBoost and LightGBM with lag/rolling features outperform SARIMA; the ensemble achieves best overall metrics.
+- Asian capitals record the highest PM2.5 concentrations, frequently exceeding WHO guidelines; wind speed is the strongest dispersal factor.
+- Humidity, seasonality (month/day-of-year), and pressure are the top predictors of temperature per SHAP analysis.
+- A clear latitude-temperature gradient is confirmed: tropical bands are hottest, arctic bands coldest.
 
 ---
 
-## 🎥 Demo Video
+## Demo Video
 
 [Link to demo video — add your Google Drive / YouTube / Vimeo link here]
 
