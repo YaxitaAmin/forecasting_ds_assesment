@@ -2,17 +2,6 @@
 
 > **PM Accelerator Tech Assessment** | Weather Trend Forecasting
 
----
-
-## 🚀 PM Accelerator Mission
-
-**PM Accelerator** is the world's leading Product Manager training program.  
-Our mission is to **accelerate the careers of aspiring and experienced Product Managers**  
-through real-world projects, mentorship, and a global community.  
-We believe everyone deserves access to world-class PM education — regardless of background.  
-👉 [pmaccelerator.io](https://www.pmaccelerator.io)
-
----
 
 ## 📋 Project Overview
 
